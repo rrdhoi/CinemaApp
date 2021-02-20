@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "277457791036",
+    "firebase_url": "https://projectstudent-a3ccb.firebaseio.com",
+    "project_id": "projectstudent-a3ccb",
+    "storage_bucket": "projectstudent-a3ccb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277457791036:android:8b46558c8b261c0e11fb39",
+        "android_client_info": {
+          "package_name": "com.rrdhoi.projectone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277457791036-ng61teut9g183jcntodqodrvb5f2q0is.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCROhhiNxERSq0ciee2ib0QP_xKSR-xCSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277457791036-ng61teut9g183jcntodqodrvb5f2q0is.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
