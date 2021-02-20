@@ -19,6 +19,5 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
         }
 
-        print("Percobaan Commit")
     }
 }
