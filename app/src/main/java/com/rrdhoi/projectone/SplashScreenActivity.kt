@@ -1,29 +1,23 @@
-@file:Suppress("DEPRECATION")
-
 package com.rrdhoi.projectone
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import com.rrdhoi.projectone.onboarding.OnBoardingOneActivity
-
-// ini adalah activity pertama yang akan di run
-// tidak ada fitur spesial disini hanya melalukan pending saja
-// dan ini adalah push yang pertama
+import java.util.*
+import kotlin.concurrent.schedule
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        // untuk delay 5 detik saat pertama masuk
-        val handler = Handler()
-        handler.postDelayed({
+        val timer = Timer()
+        timer.schedule(5000) {
             val intent = Intent(this@SplashScreenActivity, OnBoardingOneActivity::class.java)
             startActivity(intent)
             finish()
-        }, 5000)
+        }
 
         print("Percobaan Commit")
     }
