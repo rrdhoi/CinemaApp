@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import com.rrdhoi.projectone.onboarding.OnBoardingOneActivity
 
+// ini adalah activity pertama yang akan di run
+// tidak ada fitur spesial disini hanya melalukan pending saja
+// dan ini adalah push yang pertama
+
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
