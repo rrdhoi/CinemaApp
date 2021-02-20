@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.rrdhoi.projectone.HomeActivity
 import com.rrdhoi.projectone.R
-import com.rrdhoi.projectone.sign.SignUpActivity
+import com.rrdhoi.projectone.sign.signup.SignUpActivity
 import com.rrdhoi.projectone.utils.Preferences
 import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -78,8 +78,8 @@ class SignInActivity : AppCompatActivity() {
 
                         val intent = Intent(this@SignInActivity, HomeActivity::class.java)
                         startActivity(intent)
-
                         finishAffinity()
+                        FancyToast.makeText(this@SignInActivity , "Berhasil login", FancyToast.LENGTH_LONG,FancyToast.SUCCESS,false).show()
                     } else {
                         FancyToast.makeText(this@SignInActivity , "Password anda salah", FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show()
                     }
