@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.rrdhoi.projectone
 
 import android.content.Intent
@@ -15,6 +17,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+        // untuk delay 5 detik saat pertama masuk
         val handler = Handler()
         handler.postDelayed({
             val intent = Intent(this@SplashScreenActivity, OnBoardingOneActivity::class.java)
@@ -22,5 +25,6 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
         }, 5000)
 
+        print("Percobaan Commit")
     }
 }
