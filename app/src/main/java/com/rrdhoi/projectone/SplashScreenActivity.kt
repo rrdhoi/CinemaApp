@@ -7,6 +7,7 @@ import com.rrdhoi.projectone.onboarding.OnBoardingOneActivity
 import java.util.*
 import kotlin.concurrent.schedule
 
+
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +19,5 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
     }
 }
