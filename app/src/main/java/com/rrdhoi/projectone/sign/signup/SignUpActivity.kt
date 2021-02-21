@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.database.*
 import com.rrdhoi.projectone.R
-import com.rrdhoi.projectone.sign.SignUpPhotoScreenActivity
 import com.rrdhoi.projectone.sign.signin.User
 import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.android.synthetic.main.activity_sign_up.*

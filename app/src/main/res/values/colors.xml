@@ -10,4 +10,8 @@
     <color name="colorGrey_300">#CCCCCC</color>
     <color name="colorBlack">#1B262C</color>
     <color name="colorBlue_100">#E6F4FD</color>
+
+    <color name="ucrop_color_toolbar">@color/colorBlue_500</color>
+    <color name="ucrop_color_statusbar">@color/colorBlue_700</color>
+    <color name="ucrop_color_widget_active">@color/colorBlue_500</color>
 </resources>
