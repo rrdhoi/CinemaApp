@@ -5,31 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.database.*
 import com.rrdhoi.projectone.R
+import com.rrdhoi.projectone.model.Film
+import com.rrdhoi.projectone.utils.Preferences
+import com.shashank.sony.fancytoastlib.FancyToast
+import kotlinx.android.synthetic.main.fragment_dashboard.*
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DashboardFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DashboardFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var preferences: Preferences
+    private lateinit var mDatabase : DatabaseReference
+    private var dataList = ArrayList<Film>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -37,23 +33,58 @@ class DashboardFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DashboardFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                DashboardFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        preferences = Preferences(activity!!.applicationContext)
+        mDatabase = FirebaseDatabase.getInstance().getReference("Film")
+
+        tv_nama.setText(preferences.getValue("nama"))
+        if (preferences.getValue("saldo") == "") {
+            currency(preferences.getValue("saldo")!!.toDouble(), tv_saldo)
+        }
+
+        Glide.with(this)
+                .load(preferences.getValue("url"))
+                .apply(RequestOptions.circleCropTransform())
+                .into(iv_profile)
+
+        rv_now_playing.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rv_coming_soon.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        getData()
     }
+
+    private fun getData(){
+        mDatabase.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(databaseError: DatabaseError) {
+                FancyToast.makeText(context , "" + databaseError, FancyToast.LENGTH_LONG, FancyToast.ERROR,false).show()
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataList.clear()   // -> di bersihkan dlu datanya biar g ada yang duplikat
+
+                for ( getData in dataSnapshot.children) {
+                    val dataFilm = getData.getValue(Film::class.java)
+                    dataList.add(dataFilm!!)
+                }
+
+//                rv_now_playing.adapter = NowPlayingAdapter(datalist) {
+//
+//                }
+//                rv_coming_soon.adapter = ComingSoonAdapater(datalist) {
+//
+//                }
+            }
+
+        })
+    }
+
+    private fun currency(harga : Double, textView: TextView) {
+        val localID = Locale("in", "ID")
+        val formatCurrency = NumberFormat.getCurrencyInstance(localID)
+
+        textView.setText(formatCurrency.format(harga))
+    }
+
 }
