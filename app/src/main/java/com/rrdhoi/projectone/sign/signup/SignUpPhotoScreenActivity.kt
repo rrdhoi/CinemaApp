@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.rrdhoi.projectone.HomeActivity
+import com.rrdhoi.projectone.home.HomeActivity
 import com.rrdhoi.projectone.R
 import com.rrdhoi.projectone.utils.Preferences
 import com.shashank.sony.fancytoastlib.FancyToast

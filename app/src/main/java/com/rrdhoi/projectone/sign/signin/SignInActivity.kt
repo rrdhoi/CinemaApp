@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-import com.rrdhoi.projectone.HomeActivity
+import com.rrdhoi.projectone.home.HomeActivity
 import com.rrdhoi.projectone.R
 import com.rrdhoi.projectone.sign.signup.SignUpActivity
 import com.rrdhoi.projectone.utils.Preferences

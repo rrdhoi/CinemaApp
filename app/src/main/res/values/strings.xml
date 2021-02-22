@@ -10,8 +10,8 @@
     <string name="username">Username</string>
     <string name="daftar_akun_baru">Daftar Akun Baru</string>
     <string name="password">Password</string>
-    <string name="presale_sub">Tidak khawatir ketinggalan <br/> update film terbaru</string>
-    <string name="cashless_sub">Gunakan e-wallet untuk <br/> transaksi tiket nonton</string>
+    <string name="presale_sub">Tidak khawatir ketinggalan <br /> update film terbaru</string>
+    <string name="cashless_sub">Gunakan e-wallet untuk <br /> transaksi tiket nonton</string>
     <string name="sign_up">Sign Up</string>
     <string name="nama">Nama</string>
     <string name="email">Email Address</string>
@@ -31,5 +31,9 @@
     <string name="cinema">Cinema</string>
     <string name="ewallet">E-Wallet</string>
     <string name="totalbalance">Total Balance</string>
-    <string name="success_sub">Tiket telah berhasil dibeli dan <br/> selamat menikmati film</string>
+    <string name="success_sub">Tiket telah berhasil dibeli dan <br /> selamat menikmati film</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile">profile</string>
+    <string name="wallet">IDR 280.000</string>
 </resources>
