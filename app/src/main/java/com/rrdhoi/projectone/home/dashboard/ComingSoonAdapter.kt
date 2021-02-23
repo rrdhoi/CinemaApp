@@ -1,4 +1,4 @@
-package com.rrdhoi.projectone.dashboard
+package com.rrdhoi.projectone.home.dashboard
 
 import android.content.Context
 import android.view.LayoutInflater

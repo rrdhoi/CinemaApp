@@ -1,5 +1,6 @@
-package com.rrdhoi.projectone.home
+package com.rrdhoi.projectone.home.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.*
+import com.rrdhoi.projectone.DetailActivity
 import com.rrdhoi.projectone.R
-import com.rrdhoi.projectone.dashboard.ComingSoonAdapter
-import com.rrdhoi.projectone.dashboard.NowPlayingAdapter
 import com.rrdhoi.projectone.model.Film
 import com.rrdhoi.projectone.utils.Preferences
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -71,13 +71,12 @@ class DashboardFragment : Fragment() {
                 }
 
                 rv_now_playing.adapter = NowPlayingAdapter(dataList) {
-
+                    startActivity(Intent(context, DetailActivity::class.java).putExtra("data", it))
                 }
 
                 rv_coming_soon.adapter = ComingSoonAdapter(dataList) {
-
+                    startActivity(Intent(context, DetailActivity::class.java).putExtra("data", it))
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
