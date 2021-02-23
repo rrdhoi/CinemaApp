@@ -1,10 +1,12 @@
 package com.rrdhoi.projectone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
+import com.rrdhoi.projectone.checkout.PilihBangkuActivity
 import com.rrdhoi.projectone.model.Film
 import com.rrdhoi.projectone.model.Plays
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -37,6 +39,10 @@ class DetailActivity : AppCompatActivity() {
 
         rv_who_play.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         getData()
+
+        btn_pilih_bangku.setOnClickListener {
+            startActivity(Intent(this@DetailActivity, PilihBangkuActivity::class.java).putExtra("data", dataList))
+        }
     }
 
     private fun getData() {

@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/tv_judul"
         app:srcCompat="@drawable/ic_line" />
 
     <Button
@@ -55,11 +55,12 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/shape_rectangle_blue"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/beli_tiket"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorGrey"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/backDetail"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
@@ -93,7 +94,7 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tv_judul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -250,7 +251,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView19">
 
         <ImageView
-            android:id="@+id/imageViewA1"
+            android:id="@+id/a1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -258,7 +259,7 @@
             app:srcCompat="@drawable/shape_line" />
 
         <ImageView
-            android:id="@+id/imageViewA2"
+            android:id="@+id/a2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -277,7 +278,7 @@
             android:textSize="20sp" />
 
         <ImageView
-            android:id="@+id/imageViewA3"
+            android:id="@+id/a3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -285,7 +286,7 @@
             app:srcCompat="@drawable/shape_line" />
 
         <ImageView
-            android:id="@+id/imageViewA4"
+            android:id="@+id/a4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
