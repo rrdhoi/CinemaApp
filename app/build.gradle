@@ -53,4 +53,5 @@ dependencies {
         exclude group: "com.android.support"
     }
     implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+    implementation 'com.github.BluRe-CN:ComplexView:v1.1'
 }

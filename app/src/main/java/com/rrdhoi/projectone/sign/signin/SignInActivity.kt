@@ -25,7 +25,7 @@ class SignInActivity : AppCompatActivity() {
         preferences = Preferences(this)
 
         preferences.setValue("onboarding", "1")
-        val checkStatus = preferences.getValue("status")
+        val checkStatus = preferences.getValues("status")
         if ( checkStatus == "1" ) {
             // mengecek activity jika status data sudah ada isinya artinya sudah login maka akan melewatkan acktivity ini dan goHome intent home
             finishAffinity()

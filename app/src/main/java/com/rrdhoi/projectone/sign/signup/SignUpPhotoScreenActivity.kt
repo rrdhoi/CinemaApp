@@ -1,17 +1,24 @@
 package com.rrdhoi.projectone.sign.signup
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.single.PermissionListener
 import com.rrdhoi.projectone.home.HomeActivity
 import com.rrdhoi.projectone.R
 import com.rrdhoi.projectone.utils.Preferences
@@ -19,8 +26,9 @@ import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.android.synthetic.main.activity_sign_up_photoscreen.*
 import java.util.*
 
-class SignUpPhotoScreenActivity : AppCompatActivity(){
+class SignUpPhotoScreenActivity : AppCompatActivity(), PermissionListener {
 
+    val REQUEST_IMAGE_CAPTURE = 1
     private var statusAdd: Boolean = false
     private lateinit var filePath: Uri
 
@@ -94,6 +102,37 @@ class SignUpPhotoScreenActivity : AppCompatActivity(){
         }
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
+    override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+//        //To change body of created functions use File | Settings | File Templates.
+//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+//            takePictureIntent.resolveActivity(packageManager)?.also {
+//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+//            }
+//        }
+
+        ImagePicker.with(this)
+            .crop()
+            .compress(1024)
+            .maxResultSize(1080, 1080)
+            .cameraOnly()
+            .start()
+
+    }
+
+    override fun onPermissionRationaleShouldBeShown(
+        permission: com.karumi.dexter.listener.PermissionRequest?,
+        token: PermissionToken?
+    ) {
+        //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+        //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(this, "Anda tidak bisa menambahkan photo profile", Toast.LENGTH_LONG ).show()
+    }
+
+
     override fun onBackPressed() {
         FancyToast.makeText(this, "Upload gambar anda",FancyToast.LENGTH_LONG,FancyToast.INFO,false).show()
     }
@@ -105,7 +144,7 @@ class SignUpPhotoScreenActivity : AppCompatActivity(){
             // statusAdd ini digunakan untuk mengganti icon
             statusAdd = true
             // Image Uri tidak akan null jika RESULT_OK
-            filePath = data?.getData()!!
+            filePath = data?.data!!
 
             Glide.with(this)
                 .load(filePath)

@@ -21,7 +21,7 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/name"/>
+            tools:text="@string/name" />
 
         <TextView
             android:id="@+id/tv_saldo"
@@ -33,9 +33,9 @@
             android:fontFamily="@font/poppins"
             android:text="@string/wallet"
             android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_account_balance_wallet_24px"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nama"
-            app:drawableStartCompat="@drawable/ic_account_balance_wallet_24px" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama" />
 
         <ImageView
             android:id="@+id/iv_profile"
@@ -43,10 +43,10 @@
             android:layout_height="60dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/user_pic"
-            android:contentDescription="@string/profile" />
+            app:srcCompat="@drawable/user_pic" />
 
         <TextView
             android:id="@+id/textView10"
@@ -59,14 +59,14 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_saldo"
-            tools:text="@string/now_playing"/>
+            android:text="@string/now_playing" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_now_playing"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,13 +88,19 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_coming_soon"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.0">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

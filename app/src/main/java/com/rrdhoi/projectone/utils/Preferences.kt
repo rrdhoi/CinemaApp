@@ -17,6 +17,6 @@ class Preferences (val context: Context) {
         editor.apply()
     }
 
-    fun getValue (key: String) : String? = sharedPreferences.getString(key, "")
+    fun getValues (key: String) : String? = sharedPreferences.getString(key, "")
 
 }

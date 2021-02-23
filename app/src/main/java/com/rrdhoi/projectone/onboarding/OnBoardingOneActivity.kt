@@ -18,7 +18,7 @@ class OnBoardingOneActivity : AppCompatActivity() {
 
         preferences = Preferences(this)
         // key harus sama dengan yang dikirim pertama kali di btn_daftar di pencet agar di cek lagi ketika aplikasi dibuka kembali
-        val checkStatus = preferences.getValue("statusOnboarding")
+        val checkStatus = preferences.getValues("statusOnboarding")
         if (checkStatus ==  "1") {
             finishAffinity()
 
