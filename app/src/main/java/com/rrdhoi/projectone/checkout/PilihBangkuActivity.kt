@@ -42,14 +42,14 @@ class PilihBangkuActivity : AppCompatActivity() {
         }
 
         a2.setOnClickListener {
-            if( statusA1 == true ) {
+            if( statusA2 == true ) {
                 a2.setImageResource(R.drawable.ic_rectangle_empty)
-                statusA1 = false
+                statusA2 = false
                 total -= 1
                 beliTiket(total)
             } else {
                 a2.setImageResource(R.drawable.ic_rectangle_selected)
-                statusA1 = true
+                statusA2 = true
                 total += 1
                 beliTiket(total)
 
