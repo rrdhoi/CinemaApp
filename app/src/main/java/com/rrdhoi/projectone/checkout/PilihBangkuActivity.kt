@@ -1,5 +1,6 @@
 package com.rrdhoi.projectone.checkout
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -37,7 +38,8 @@ class PilihBangkuActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                dataList.add( Checkout("A1", "35000") )  // ----> kita set nilai di kursi a1 ini
+                val dataSelected = Checkout("A1", "35000")
+                dataList.add( dataSelected )                                           // ----> kita set nilai di kursi a1 ini
             }
         }
 
@@ -53,19 +55,23 @@ class PilihBangkuActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                dataList.add( Checkout("A2", "35000") )  // ----> kita set nilai di kursi a1 ini
+                val dataSelected = Checkout("A2", "35000")
+                dataList.add( dataSelected )                                      // ----> kita set nilai di kursi a1 ini
             }
         }
 
+        btn_beli_tiket.setOnClickListener { 
+            startActivity(Intent(this, CheckoutActivity::class.java).putParcelableArrayListExtra("data", dataList))
+        }
     }
 
     private fun beliTiket(total: Int) {
         if( total == 0) {
-            btn_home.setText("Beli Tiket")
-            btn_home.visibility = View.INVISIBLE
+            btn_beli_tiket.setText("Beli Tiket")
+            btn_beli_tiket.visibility = View.INVISIBLE
         } else {
-            btn_home.setText("Beli Tiket ($total)")
-            btn_home.visibility = View.VISIBLE
+            btn_beli_tiket.setText("Beli Tiket ($total)")
+            btn_beli_tiket.visibility = View.VISIBLE
         }
     }
 }

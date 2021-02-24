@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.rrdhoi.projectone.checkout.PilihBangkuActivity
+import com.rrdhoi.projectone.home.dashboard.ActorAdapter
 import com.rrdhoi.projectone.model.Film
 import com.rrdhoi.projectone.model.Plays
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -62,8 +63,8 @@ class DetailActivity : AppCompatActivity() {
                 rv_who_play.adapter = ActorAdapter(dataList) {
 
                 }
-            }
 
+            }
         })
     }
 }

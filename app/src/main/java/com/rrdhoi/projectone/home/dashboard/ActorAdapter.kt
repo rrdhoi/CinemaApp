@@ -1,4 +1,4 @@
-package com.rrdhoi.projectone
+package com.rrdhoi.projectone.home.dashboard
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.rrdhoi.projectone.R
 import com.rrdhoi.projectone.model.Plays
 
 class ActorAdapter(
@@ -18,12 +19,14 @@ class ActorAdapter(
 
     private lateinit var contextAdapter : Context
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ActorViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         contextAdapter = parent.context
         val inflatedView: View = layoutInflater.inflate(R.layout.row_item_play, parent, false)
 
-        return ActorViewHolder(inflatedView)
+        return ActorViewHolder(
+            inflatedView
+        )
     }
 
     override fun onBindViewHolder(holder: ActorViewHolder, position: Int) {
